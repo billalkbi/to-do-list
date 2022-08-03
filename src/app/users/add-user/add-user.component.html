@@ -1,0 +1,73 @@
+<div >
+  <h1 class="display-4 text-cente mb-2">Ajouter un utilisateur</h1>
+   <div class="col-6">
+    <form  [formGroup]="userForm" (ngSubmit)="onSubmit()" >
+
+        <div class="form-group">
+            <label for="firsname" class="text-black"
+                   class="col-md-3 control-label">prenom*</label>
+
+            <input type="text" class="form-control" formControlName="firstname" required>
+
+        </div>
+
+        <div class="form-group">
+            <label for="lastname" class="text-black"
+                   class="col-md-3 control-label">nom*</label>
+
+            <input type="text" class="form-control"   formControlName="lastname"  required>
+
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="text-black"
+                 class="col-md-3 control-label">email</label>
+
+          <input type="email" class="form-control" name="email"  formControlName="email"/>
+
+      </div>
+
+
+
+      <div class="form-group" formGroupName="address">
+        <h3>Adresse</h3>
+           <div class="row">
+               <div class="col-06">
+                   <label for="street">Rue:</label>
+                   <input class="form-control m-1" type="text" formControlName="street"/>
+               </div>
+               <div class="col-06">
+                    <label for="city">Ville:</label>
+                    <input class="form-control m-1" type="text" formControlName="city"/>
+               </div>
+                <div class="col-06">
+                   <label for="state">Etat:</label>
+                   <input class="form-control m-1" type="text" formControlName="state"/>
+                </div>
+                <div class="col-06">
+                   <label for="codezip">Code Postal:</label>
+                   <input class="form-control m-1" type="text"formControlName="zip" />
+               </div>
+           </div>
+
+      </div>
+
+      <div class=" form-group" >
+          <label for="description">description:</label>
+        <textarea class="form-control m-1" type="text"  formControlName="description" ></textarea>
+      </div>
+
+      <div class="form-group">
+            <label for="dateBirth" class="col-md-3 text-black"  control-label >Date de naissance*  </label>
+
+            <input type="date" class="form-control"
+                        value="03-03-2019" min="01-01-1950" max="31-12-1999"  formControlName="dateBirth" required >
+
+        </div>
+
+           <button type="submit" [disabled]="userForm.invalid" class="btn btn-success btn-lg">Ajouter un utilisateur</button>
+
+      </form>
+
+    </div>
+  </div>

@@ -1,0 +1,45 @@
+<div class="card-body">
+  <h1 class="display-4 text-center"> ajouter un tache a realiser</h1>
+  {{toDo |json}}
+  <form  #addTodoForm="ngForm" >
+
+
+
+     <div class="form-group">
+         <label for="nomp"  class="col-md-3 control-label text-black">nom de la tache*</label>
+         <div class="col-md-9">
+             <input type="text"  class="form-control" id="nomt"
+                    name="toDoName" [(ngModel)]="toDo.toDoName"  required>
+         </div>
+     </div>
+
+     <div class="form-group">
+         <label for="poidsmax" class="text-black" class="col-md-3 control-label">description </label>
+         <div class="col-md-9">
+            <textarea class="form-control m-1"
+                      name="description" [(ngModel)]="toDo.description"  required></textarea>
+         </div>
+     </div>
+
+    <div class="form-group">
+         <label for=""  >URL Image</label>
+         <div class="col-md-9">
+             <input type="text" class="form-control" name="image"
+                    [(ngModel)]="toDo.image" required/>
+         </div>
+     </div>
+
+     <div class="row form-group">
+          <div class="col-md-12">
+         <label  for="">etat de la tache:</label>
+        <select class="form-control m-1" name="toDostatus"
+        [(ngModel)]="toDo.toDoStatus" required>
+          <option value="true">en cours</option>
+          <option value="false">termniné</option>
+        </select>
+      </div>
+    </div>
+         <!-- Boutton -->
+         <button [disabled]="!addTodoForm.valid" type="button" (click)="onSubmit()" class="btn btn-success btn-lg"> ajouter la tache</button>
+  </form>
+</div>
